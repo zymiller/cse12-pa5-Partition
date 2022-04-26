@@ -1,22 +1,20 @@
 
 ---
 
-# PA5: Testing Partition (closed)
+# PA5: Testing Partition
 ---
-
-**This assignment is closed to collaboration.**
 
 This assignment will teach you how to write tests in a thorough, automated way, will explore some properties of quicksort, and will give you structured practice in re-using code you find on the Web.
 
 *This assignment is inspired by [an assignment from Brown University's
 CS019](https://cs.brown.edu/courses/cs019/2016/sortaclesortacle.html).*
 
-This PA is due on ** **Wednesday, May 5 at 11:59pm** **
+This PA is due on ** **Wednesday, May 3 at 10:00pm** **
 
 
 ## Getting the Code
 
-The starter code is in the Github repository that you are currently looking at. If you are not familiar with Github, here are two easy ways to get your code.
+The starter code can be found from: https://github.com/ucsd-cse12-sp22/cse12-pa5-Partition. If you are not familiar with Github, here are two easy ways to get your code.
 
 1. Download as a ZIP folder 
 
@@ -65,7 +63,7 @@ implementation. In fact, sometimes it won't work at all.
 Consider the `partition` helper method of quick sort as an interface (here
 we'll restrict it to just partitioning arrays of `String`s):
 
-```
+```java
 interface Partitioner {
   // Change strs between start (inclusive) and end (exclusive), such that
   // all values at indices lower than a pivot index are smaller than or equal
@@ -81,7 +79,7 @@ In lecture and discussion, we noted that there are many ways to implement
 only could we choose different pivots, but one choice is to have a _random_
 choice of pivot!  Let's imagine writing a test for a `Partitioner`:
 
-```
+```java
 class PartitionerFromLecture implements Partitioner {
   public int partition(String[] strs, int low, int high) {
     int pivotStartIndex = Random.nextInt(high - low);
@@ -138,7 +136,7 @@ build a method that takes a `Partitioner` and returns `null` if we believe it
 to be a good partitioner, and a `CounterExample` if we can find an input array
 and low/high bounds that partition incorrectly:
 
-```
+```java
 CounterExample findCounterExample(Partitioner p);
 ```
 
@@ -157,7 +155,7 @@ correct implementations of partition_.
 You must implement two methods to help you implement `CounterExample`; you can implement other helpers as
 you see fit. The two methods you must implement are:
 
-```
+```java
 /*
  * Return null if the pivot and after array reflect a correct partitioning of 
  * the before array between low and high.
@@ -173,7 +171,7 @@ you see fit. The two methods you must implement are:
 String isValidPartitionResult(String[] before, int low, int high, int pivot, String[] after)
 ```
 
-```
+```java
 /*
  * Generate a list of items of size n
  */
@@ -209,7 +207,7 @@ Here's one way you might approach this problem:
   you will need to _save_ the original array, since sorters can and will make
   changes to them! You can use `Arrays.copyOf` to make a copy of an array:
   
-  ```
+  ```java
   String[] input1 = {"a", "b", "c", "a"};
   String[] original1 = Arrays.copyOf(input1, input1.length);
   ```
@@ -283,7 +281,7 @@ rather than a few big ones, which should process very quickly.
 
 ## Part II: Implementing Different Partitions
 
-When you're learning, it's useful to write implementations yourself to gain experience. Your task now will be to write three partition methods that differ in the way they choose the initial pivot value. There are many different way to choose the pivot value, but the three we ask you to implement are listed below:
+When you're learning, it's useful to write implementations yourself to gain experience. Your task now will be to write three partition methods that differ in the way they choose the initial pivot value. There are many different way to choose the pivot value, but the two we ask you to implement are listed below. You are welcome to search for solutions on the internet to solve this portion of the PA. Include a link to wherever you found an internet solution if you do use a solution from the interent.
 
 - Central Pivot Value: The initial pivot value should be chosen as the middle index in the similar range as above. For example if start is 1 and end is 4, the middle index should be 2.     
 - First index as Pivot Value: The initial pivot value should be chosen as the first index, i.e the value at the index, start.    
@@ -317,7 +315,7 @@ When you re-use or repurpose code, there are two main concerns:
   it to adapt to your application, will that invalidate any assumptions of the
   original version?
 
-For this assignment, you must go _find a `partition` implementation in
+For this assignment, you must go _find a single `partition` implementation in
 Java on the Web_. You should document the source you got it from clearly, and
 adapt it to fit the `Partitioner` interface that partitions `String`s. For each
 implementation you find, you write in a header comment with the method:
@@ -353,16 +351,8 @@ property attorneys, to extend the analogy to the professional context.**
 
 ## Asking for Help
 
-This is a **closed** PA, and the coding task for this assignment is to
-implement and test `findCounterExample` along with the two partition methods and you must complete that on your own. However there are lots of ways to get help! In particular, we talked about quicksort and
-partition in lecture, so feel free to ask TAs for help understanding those
-algorithms.
-
-Some good questions to ask a tutor or TA if you don't quite understand:
-
-- What's the difference between quicksort and partition?
-- Why does partition take a low and a high index along with the array?
-- What is a pivot?
+The coding task for this assignment is to
+implement and test `findCounterExample` along with the two partition methods. You are free to go to help hours for assistance, but be aware that tutors may not be able to directly answer your questions or debug your program.
 
 ## Answers to FAQ
 - The input arrays are string arrays of letters, not numeric strings like {"1", "2", "3"}.
