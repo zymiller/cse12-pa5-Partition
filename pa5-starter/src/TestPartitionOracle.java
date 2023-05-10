@@ -30,4 +30,23 @@ public class TestPartitionOracle {
         assertNotNull(ce);
     }
 
+    @Test
+    public void testFirstElementPivotPartitioner() {
+        CounterExample ce = PartitionOracle.findCounterExample(new FirstElePivotPartitioner());
+        System.out.println(ce);
+        assertNull(ce);
+    }
+    @Test
+    public void testCentralPivotPartitioner() {
+        CounterExample ce = PartitionOracle.findCounterExample(new CentralPivotPartitioner());
+        System.out.println(ce);
+        assertNull(ce);
+    }
+
+    @Test
+    public void testWebPartitioner() {
+        CounterExample ce = PartitionOracle.findCounterExample(new WebPartitioner());
+        System.out.println(ce);
+        assertNull(ce);
+    }
 }
