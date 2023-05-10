@@ -38,7 +38,7 @@ public class WebPartitioner implements Partitioner{
         {
             // If current element is smaller than or
             // equal to pivot
-            if (str[j].compareToIgnoreCase(pivot) <= 0)
+            if (str[j].compareToIgnoreCase(pivot) < 0)
             {
                 i++;
  

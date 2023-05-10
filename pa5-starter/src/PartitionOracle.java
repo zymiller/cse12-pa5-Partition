@@ -56,13 +56,13 @@ public class PartitionOracle {
         }
 
         for (int i = low; i < pivot; i++) {
-            if (after[i].compareToIgnoreCase(after[pivot]) > 0) {
+            if (after[i].compareToIgnoreCase(after[pivot]) >= 0) {
                 return "Not all elements before pivot sorted correctly";
             }
         }
 
         for (int i = pivot + 1; i < high; i++) {
-            if (after[i].compareToIgnoreCase(after[pivot]) <= 0) {
+            if (after[i].compareToIgnoreCase(after[pivot]) < 0) {
                 return "Not all elements after pivot sorted correctly";
             }
         }

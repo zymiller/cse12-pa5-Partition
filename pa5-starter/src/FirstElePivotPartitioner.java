@@ -5,7 +5,7 @@ public class FirstElePivotPartitioner implements Partitioner{
         int partitionEnd = findPartitionEnd(str, pivotData, low, high);
         int i = partitionEnd - 1;
         while (i > low) {
-            if (str[i].compareToIgnoreCase(pivotData) > 0) {
+            if (str[i].compareToIgnoreCase(pivotData) >= 0) {
                 String newHigh = str[i];            
                 str[i] = str[partitionEnd];
                 str[partitionEnd] = newHigh;
@@ -26,7 +26,7 @@ public class FirstElePivotPartitioner implements Partitioner{
 
     public int findPartitionEnd(String[] str, String pivotData, int low, int high) {
         for (int i = high - 1; i >= low; i--) {
-            if (str[i].compareToIgnoreCase(pivotData) <= 0) {
+            if (str[i].compareToIgnoreCase(pivotData) < 0) {
                 return i;
             }
         }

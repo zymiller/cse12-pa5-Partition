@@ -18,7 +18,7 @@ public class CentralPivotPartitioner implements Partitioner{
             }else if (partitionEnd == pivotPos) {
                 partitionEnd--;
             }
-            if (str[i].compareToIgnoreCase(pivotData) > 0) {
+            if (str[i].compareToIgnoreCase(pivotData) >= 0) {
                 String newHigh = str[i];
                 System.out.println("Partition: " + str[partitionEnd] + partitionEnd);
                 str[i] = str[partitionEnd];
@@ -30,9 +30,9 @@ public class CentralPivotPartitioner implements Partitioner{
 
         System.out.println(partitionEnd);
         System.out.println(str[pivotPos]);
-        if (str[partitionEnd].compareToIgnoreCase(pivotData) <= 0 && partitionEnd < pivotPos) {
+        if (str[partitionEnd].compareToIgnoreCase(pivotData) < 0 && partitionEnd < pivotPos) {
                 partitionEnd += 1;
-        } else if (str[partitionEnd].compareToIgnoreCase(pivotData) > 0 && partitionEnd > pivotPos) {
+        } else if (str[partitionEnd].compareToIgnoreCase(pivotData) >= 0 && partitionEnd > pivotPos) {
             partitionEnd -= 1;
         }
         System.out.println(str[partitionEnd]);
@@ -43,7 +43,7 @@ public class CentralPivotPartitioner implements Partitioner{
 
     public int findPartitionEnd(String[] str, int pivotPos, int low, int high) {
         for (int i = high - 1; i >= low; i--) {
-            if (str[i].compareToIgnoreCase(str[pivotPos]) <= 0 && i != pivotPos) {
+            if (str[i].compareToIgnoreCase(str[pivotPos]) < 0 && i != pivotPos) {
                 return i;
             }
         }
